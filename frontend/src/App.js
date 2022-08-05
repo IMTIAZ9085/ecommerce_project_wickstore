@@ -1,39 +1,40 @@
 import './App.css';
-import data from './data';
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from './Pages/Home';
+import Productpage from './Pages/Productpage';
 
 function App() {
   return (
+    <BrowserRouter>
      <div>
+    
+    {/* //HEADER SECTION OF THE HOMEPAGE */}
       <header>
-        <a href="/">WICK STORE</a>
+        <Link to="/">WICK STORE</Link>
       </header>
+
+    {/* //MAIN BODY START HERE */}
       <main>
-       <h1>Features Products</h1>
+     
+   
+      <Routes>
+
+        {/* //homepage route */}
+        <Route path="/" element={<Home />}>
+        </Route>
+
+        {/* //PRODUCT PAGE ROUTE */}
+        <Route path="/product/:slug" element={<Productpage />}>
+        </Route>
+
+      </Routes>
+
        {/* //RENDERING THE PRODUCT data */}
-       <div className="products">
-       {
-        data.products.map(product=>(
-          <div className="each_product" key={product.slug}>
-
-           <a href={`/product/${product.slug}`}>
-            <img style={{height:"14rem",width:"14rem"}} src={product.image} alt={product.name} />
-            </a>
-
-            <div className="product_info">
-            <a href={`/product/${product.slug}`}>
-            <p>{product.name}</p>
-            </a>
-
-            <p><strong>${product.price}</strong></p>
-            <button>ADD TO CART</button>
-            </div>
-          </div>
-        ))
-       }
-       </div>
+       
       </main>
      </div>
-   
+     </BrowserRouter>
   );
 }
 
