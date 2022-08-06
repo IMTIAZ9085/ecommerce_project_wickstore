@@ -25,8 +25,9 @@ const Home = () => {
     
     <h1>Features Products</h1>
       <div className="products_list">
-       {products.products.map((product)=>{
-          return (<div className="each_product" key={product.slug}>
+       {products.map((product)=>{
+          return (
+            <div className="each_product" key={product.slug}>
 
            <Link to={`/product/${product.slug}`}>
             <img style={{height:"14rem",width:"14rem"}} src={product.image} alt={product.name} />
@@ -40,8 +41,8 @@ const Home = () => {
             <p><strong>${product.price}</strong></p>
             <button>ADD TO CART</button>
             </div>
-          </div>)
-          
+          </div>
+      )    
        })
        }
        </div>
