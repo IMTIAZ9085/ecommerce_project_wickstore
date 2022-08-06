@@ -21,7 +21,7 @@ main{
   padding:.5rem;
 }
 
-.products{
+.products_list{
   display: flex;
   flex-wrap: wrap;
   justify-content:center; 
@@ -32,7 +32,7 @@ main{
   margin:0.7rem;
 }
 
-.products img{
+.products_list img{
   /* width: 100%!important; */
   max-width: 400px;
   

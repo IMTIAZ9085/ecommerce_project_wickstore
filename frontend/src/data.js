@@ -52,7 +52,7 @@ const data = {
             },
             {
                   name: 'Adidas-fit-Sunglass',
-                  slug: 'adids-fit-sunglass',
+                  slug: 'adids-duplicate-fit-sunglass',
                   catagory: 'Sunglass',
                   image: 'images/sun2.jpg',
                   price: 1300,
