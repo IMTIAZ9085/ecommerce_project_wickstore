@@ -50,18 +50,6 @@ const data = {
                   numsReview: 33,
                   description: 'High quality UV protected sunglass'
             },
-            {
-                  name: 'Adidas-fit-Sunglass',
-                  slug: 'adids-duplicate-fit-sunglass',
-                  catagory: 'Sunglass',
-                  image: 'images/sun2.jpg',
-                  price: 1300,
-                  countInStock: 19,
-                  brand: 'Adidas',
-                  rating: 4.5,
-                  numsReview: 33,
-                  description: 'High quality UV protected sunglass'
-            },
             
       ],
 };

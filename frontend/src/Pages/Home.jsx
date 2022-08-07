@@ -1,7 +1,8 @@
-import React, { useState ,useEffect, useReducer} from 'react'
+import React, {useEffect, useReducer} from 'react'
 import { Link } from 'react-router-dom';
 // import data from '../data';
 import axios from 'axios';
+import logger from 'use-reducer-logger';
 
 //REDUCER FUNCTION FOR STATE MANAGEMENT
 const reducer = (state,action) => {
@@ -9,7 +10,7 @@ const reducer = (state,action) => {
     case 'FETCH_REQUEST':
       return {...state,loading: true};
     case 'FETCH_SUCCESS':
-      return {...state,products:action.payload,loading: true};
+      return {...state,products:action.payload,loading: false};
     case 'FETCH_FAIL':
       return {...state,error: action.payload};
     default: 
@@ -21,7 +22,7 @@ const Home = () => {
 
   // const [productslist, setProducts] = useState([]);
 
-  const [{loading,error,products},dispatch] = useReducer(reducer,{
+  const [{loading,error,products},dispatch] = useReducer(logger(reducer),{
     loading: true,
     error:'',
     products:[],
@@ -50,8 +51,9 @@ const Home = () => {
     
     <h1>Features Products</h1>
       <div className="products_list">
-        {/* <p style={{color: 'green'}}>{productslist.products[0].name}</p> */}
-       {
+       {   
+         loading ? (<div>Loading...</div>) : error ? <div>{error}</div> :
+       (
         products.map((product)=>
            (
             
@@ -70,6 +72,7 @@ const Home = () => {
             </div>
           </div>
       )    
+       ) 
        )
        }
        </div>
