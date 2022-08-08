@@ -1,8 +1,11 @@
 import React, {useEffect, useReducer} from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import data from '../data';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Product from '../Component/Product';
 
 //REDUCER FUNCTION FOR STATE MANAGEMENT
 const reducer = (state,action) => {
@@ -27,7 +30,8 @@ const Home = () => {
     error:'',
     products:[],
   });
- 
+  
+  //FETCHING PRODUCT DATA FROM THE API
   useEffect(() =>{
     const fetchData = async() =>{
       dispatch({type:'FETCH_REQUEST'});
@@ -54,25 +58,15 @@ const Home = () => {
        {   
          loading ? (<div>Loading...</div>) : error ? <div>{error}</div> :
        (
-        products.map((product)=>
+        <Row>
+        {products.map((product)=>
            (
-            
-            <div className="each_product" key={product.slug}>
-           <Link to={`/product/${product.slug}`}>
-            <img style={{height:"14rem",width:"14rem"}} src={product.image} alt={product.name} />
-            </Link>
-
-            <div className="product_info">
-            <Link to={`/product/${product.slug}`}>
-            <p>{product.name}</p>
-            </Link>
-
-            <p><strong>${product.price}</strong></p>
-            <button>ADD TO CART</button>
-            </div>
-          </div>
+            <Col sm={6} md={4} lg={3} key={product.slug} className="mb-3">
+           <Product product={product}></Product>
+          </Col>
       )    
-       ) 
+       )}
+       </Row>
        )
        }
        </div>
