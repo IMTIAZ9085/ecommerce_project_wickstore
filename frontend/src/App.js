@@ -26,7 +26,7 @@ function App() {
 
     {/* //MAIN BODY START HERE */}
       <main>
-     <Container>
+     <Container className="mt-3">
 
       <Routes>
 
