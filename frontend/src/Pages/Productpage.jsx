@@ -10,6 +10,9 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Rating from '../Component/Rating';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../Component/LoadingBox';
+import { getError } from '../utilis';
+import MessageBox from '../Component/MessageBox';
 
 //REDUCER FUNCTION FOR STATE MANAGEMENT
 const reducer = (state,action) => {
@@ -44,7 +47,7 @@ const Productpage = () => {
         // console.log(result);
         dispatch({type:'FETCH_SUCCESS',payload:result.data})
       }catch(e){
-        dispatch({type:'FETCH_FAIL',payload:e.message});
+        dispatch({type:'FETCH_FAIL',payload:getError(e)});
       }
 
       // setProducts(result.data.products);
@@ -54,10 +57,7 @@ const Productpage = () => {
   },[slug]);
 
 
-  return loading ? (<div>Loading...</div>
-    ):error?(
-      <div>{error}</div>
-    ):(
+  return  loading ? (<div><LoadingBox/></div>) : error ? (<MessageBox variant="danger">{error}</MessageBox>) :(
       <div>
         <Row>
         <Col md={6}>
