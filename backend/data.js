@@ -3,6 +3,7 @@
 const data = {
 
       products: [{
+                  _id:'1',
                   name: 'Fastrack Sunglass',
                   slug: 'fastrack-sunglass',
                   catagory: 'Sunglass',
@@ -14,7 +15,7 @@ const data = {
                   numsReview: 33,
                   description: 'High quality UV protected sunglass'
             },
-            {
+            {    _id:'2',
                   name: 'Adidas-fit-Sunglass',
                   slug: 'adids-fit-sunglass',
                   catagory: 'Sunglass',
@@ -26,7 +27,7 @@ const data = {
                   numsReview: 33,
                   description: 'High quality UV protected sunglass'
             },
-            {
+            {     _id:'3',
                   name: 'Rayban Light Sunglass',
                   slug: 'rayban-light-sunglass',
                   catagory: 'Sunglass',
@@ -38,7 +39,7 @@ const data = {
                   numsReview: 33,
                   description: 'High quality UV protected sunglass'
             },
-            {
+            {     _id:'4',
                   name: 'Rayban Uv Sunglass',
                   slug: 'rayban-uv-sunglass',
                   catagory: 'Sunglass',
