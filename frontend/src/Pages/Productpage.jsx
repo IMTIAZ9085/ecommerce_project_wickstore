@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react'
-import { useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 // import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -30,6 +30,7 @@ const reducer = (state,action) => {
 }
 
 const Productpage = () => {
+  const navigate = useNavigate();
       const params = useParams();
       const {slug} = params;
 
@@ -73,6 +74,12 @@ const Productpage = () => {
     type:'CART_ADD_ITEM',
    payload:{...product,quantity:quantity},
    });
+   
+
+   //after adding item to cart they are navigating to the cart page
+   navigate('/cart');
+
+
   }
 
 
@@ -80,11 +87,11 @@ const Productpage = () => {
       <div>
         <Row>
         <Col md={6}>
-        <img
-            className="img-large"
-            src={product.image}
+        <img 
+            src = {product.image}
             alt={product.name}
-          ></img>
+            className="img-large"
+          />
          {console.log(product.image)}
         </Col>
 
